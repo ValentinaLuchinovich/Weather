@@ -22,7 +22,7 @@ extension ViewController {
                 // Для этого вместо пробела будет использоваться %20
                 let city = cityName.split(separator: " ").joined(separator: "%20")
                 // Привязываем данные о погоде к кнопке поиска
-                self.networkWeatherManager.fetchCurrentWeather(forCity: city)
+                self.networkWeatherManager.fetchCurrentWeather(forRequestType: .cityName(city: city))
             }
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

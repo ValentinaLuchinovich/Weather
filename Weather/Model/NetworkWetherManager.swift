@@ -10,18 +10,36 @@ import CoreLocation
 
 class  NetworkWetherManager {
     
+    enum ReqestType {
+        case cityName(city: String)
+        case coordinate(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+    }
+    
     var onCompletion: ((CurrentWeather) -> Void)?
     
-    func fetchCurrentWeather(forCity city: String) {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
+    // Универсальный метод для получения данных и по названию города, и по координатам
+    func fetchCurrentWeather(forRequestType requestType: ReqestType) {
+        var urlString = ""
+        switch requestType {
+        case .cityName(let city):
+            urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
+        case .coordinate(let latitude, let longitude):
+            urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
+        }
         performRequest(with: urlString)
     }
     
-    // Получение данных по широте и долготе
-    func fetchCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        let urlString = "api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
-        performRequest(with: urlString)
-    }
+//    // Получение данных по названию города
+//    func fetchCurrentWeather(forCity city: String) {
+//        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
+//        performRequest(with: urlString)
+//    }
+//
+//    // Получение данных по широте и долготе
+//    func fetchCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+//        let urlString = "api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
+//        performRequest(with: urlString)
+//    }
     
     fileprivate func performRequest(with urlString: String) {
         guard let url = URL(string: urlString) else { return }
