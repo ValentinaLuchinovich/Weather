@@ -18,7 +18,11 @@ extension ViewController {
             let textField = ac.textFields?.first
             guard let cityName = textField?.text else { return }
             if cityName != "" {
-                print("search info for the \(cityName)")
+                // В случае если город состоит из двух слов он должен читаться программой
+                // Для этого вместо пробела будет использоваться %20
+                let city = cityName.split(separator: " ").joined(separator: "%20")
+                // Привязываем данные о погоде к кнопке поиска
+                self.networkWeatherManager.fetchCurrentWeather(forCity: city)
             }
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
