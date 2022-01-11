@@ -8,7 +8,7 @@
 import UIKit
 
 extension ViewController {
-    func presentSearchAlertController(withTitle title: String?, message: String?, style: UIAlertController.Style) {
+    func presentSearchAlertController(withTitle title: String?, message: String?, style: UIAlertController.Style, completionHandler: @escaping (String) -> Void) {
         let ac = UIAlertController(title: title, message: message, preferredStyle: style)
         ac.addTextField { tf in
             let cities = ["San Francisco", "Moscow", "New York", "Stambul", "Viena"]
