@@ -58,11 +58,8 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Получение геопозиции
         guard let location = locations.last else { return }
-        // Широта
         let latitude = location.coordinate.latitude
-        // Долгота
         let longitude = location.coordinate.longitude
-        
         // Получаем погоду по текущему местоположению
         networkWeatherManager.fetchCurrentWeather(forRequestType: .coordinate(latitude: latitude, longitude: longitude))
     }

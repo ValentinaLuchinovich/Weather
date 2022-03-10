@@ -29,18 +29,6 @@ class  NetworkWetherManager {
         performRequest(with: urlString)
     }
     
-//    // Получение данных по названию города
-//    func fetchCurrentWeather(forCity city: String) {
-//        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
-//        performRequest(with: urlString)
-//    }
-//
-//    // Получение данных по широте и долготе
-//    func fetchCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-//        let urlString = "api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
-//        performRequest(with: urlString)
-//    }
-    
     fileprivate func performRequest(with urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
@@ -54,7 +42,6 @@ class  NetworkWetherManager {
         task.resume()
     }
     
-    // Метод отвечающий за парсинг JSON
     fileprivate func parseJSON(withData data: Data) -> CurrentWeather? {
         let decoder = JSONDecoder()
         do {

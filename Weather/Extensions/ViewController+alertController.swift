@@ -21,7 +21,7 @@ extension ViewController {
                 // В случае если город состоит из двух слов он должен читаться программой
                 // Для этого вместо пробела будет использоваться %20
                 let city = cityName.split(separator: " ").joined(separator: "%20")
-                // Привязываем данные о погоде к кнопке поиска
+                // Привязка данных о погоде к кнопке поиска
                 self.networkWeatherManager.fetchCurrentWeather(forRequestType: .cityName(city: city))
             }
         }

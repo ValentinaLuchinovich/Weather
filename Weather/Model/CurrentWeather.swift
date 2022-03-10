@@ -46,6 +46,5 @@ struct CurrentWeather {
         temperature = currentWeatherData.main.temp
         feelsLiketemperature = currentWeatherData.main.feelsLike
         conditionCode = currentWeatherData.weather.first!.id
-         
     }
 }

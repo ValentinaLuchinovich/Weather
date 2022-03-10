@@ -17,7 +17,7 @@ struct Main: Decodable {
     let temp: Double
     let feelsLike: Double
     
-    // Изменяем заданное в JSON файле название ключа
+    // Заданное в JSON файле название ключа изменено
     enum CodingKeys: String, CodingKey {
         case temp
         case feelsLike = "feels_like"
