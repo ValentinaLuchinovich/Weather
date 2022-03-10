@@ -14,5 +14,5 @@
 <br> 7. Реализованы ночная и дневная темы </br>
 
 <img src="https://github.com/ValentinaLuchinovich/Weather/blob/Screenshots/IMG_6594.PNG" width="300"/> <img src="https://github.com/ValentinaLuchinovich/Weather/blob/Screenshots/IMG_6595.PNG" width="300"/>
-<img src="https://github.com/ValentinaLuchinovich/Weather/blob/Screenshots/IMG_6596.PNG" width="300"/> <img 
+<img src="https://github.com/ValentinaLuchinovich/Weather/blob/Screenshots/IMG_6596.PNG" width="300"/> 
 
